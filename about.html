@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- CDN Start -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+  <script src="https://kit.fontawesome.com/0a39576b56.js" crossorigin="anonymous"></script>
+  <!-- CDN End -->
+  <title>Shopping Store</title>
+  <!-- Outline css Start -->
+  <style>
+    .background {
+      ;
+      height: 60vh;
+      background: url('about-us-banner.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      background-repeat: no-repeat;
+    }
+
+    .follow_us {
+      background: url('About_us2.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+      height: 60vh;
+
+      width: 100%;
+    }
+
+    .footer {
+      width: 100%;
+      background: url(footer.png);
+      background-size: cover;
+      background-attachment: fixed;
+    }
+
+    .about_us_description {
+      background-color: #ededef;
+
+    }
+
+    #alertbox {
+      margin: 0em;
+    }
+
+    .card {
+      width: 18rem;
+    }
+  </style>
+  <!-- Outline css End -->
+</head>
+
+<body>
+  <!-- Alert Message Bar Start -->
+  <!-- use outline css alertbox class for removing margin 16px by defualt -->
+
+  <div class="alert alert-warning alert-dismissible text-center  bg-warning text-white p-3" id="alertbox">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong><span class="fas fa-car"></span> Free Delivery above order of PKR 2000</strong>
+  </div>
+  <!-- Alert Message bar End -->
+
+  <!-- Navbar Start -->
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark w-100 sticky-top ">
+       <!-- use sticky-top for placing Navbar always on top -->
+    <a class="navbar-brand " href="#"><img src="logo.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
+      <ul class="justify-content-end navbar-nav mr-auto justify-content-end">
+        <li class="nav-item active">
+          <a class="nav-link text-white " href="bootstrap.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link text-white" href="#">Store</a>
+        </li>
+         <!-- Dropdown for Men Category -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Men
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Chappal And Kheri</a>
+            <a class="dropdown-item" href="#">Khussa</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Suit</a>
+          </div>
+        </li>
+         <!-- Dropdown for Women Category -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Women
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Chappal And Kheri</a>
+            <a class="dropdown-item" href="#">Khussa</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Suit</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="boys.html">Boys</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="girls.html">Girls</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#accessories">Accessories</a>
+        </li>
+        <li class="nav-item">
+            <!-- for modal opening add data-toggle and data target on nav bar Links -->
+          <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#accountmodal">Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#exampleModalLong">Contact Us</a>
+        </li>
+
+      </ul>
+    </div>
+ 
+    <!-- Search Box Filter In Nav Bar -->
+    <!-- use justify content end to make it float right so using justify content end d-flex is necessary in Bs4 we use flex rather than float  -->
+    <div class="container col-md-3 d-flex justify-content-end ">
+      <input class="form-control " id="myInput" type="text" placeholder="Search..">
+    </div>
+  </nav>
+   <!-- Search Bar End In Nav Bar  -->
+
+  <!-- Checking smooth behaviour on accessories  -->
+
+  <!-- Modal For Contact Us in Nav BAr -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-primary" id="exampleModalLongTitle">Contat US</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="form-group">
+              <input placeholder="Name" class="form-control" type="text" name="Name" id="Name">
+            </div>
+            <div class="form-group">
+              <input placeholder="Email" class="form-control" type="email" name="Email" id="Email">
+            </div>
+            <div class="form-group">
+              <input placeholder="Contact" class="form-control" type="Contact" name="Contact" id="Contact">
+            </div>
+            <div class="form-group">
+              <textarea placeholder="Message here" class="form-control" name="message" id="message" cols="30"
+                rows="10"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal End for COntact Us in Nav Bar -->
+  <!--  Modal for Account Loginn in Nav Bar -->
+  <div class="modal fade" id="accountmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="text-center text-primary" id="accountmodal">Login here</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="form-group">
+              <input type="text" class="form-control" type="username" id="username" placeholder="UserName">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" type="password" id="password" placeholder="Password">
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+
+  <!-- End modal Account login in Nav Bar-->
+
+  <!-- Navbar End -->
+
+  <!-- Header with bg picture -->
+  <div class="contaner-fluid">
+    <div class="background d-flex flex-wrap justify-content-center align-items-center">
+      <h3 class="display-3">About US</h3>
+    </div>
+  </div>
+  <!-- header end -->
+
+  <!-- About us Description class use for background color -->
+  <div class="container-fluid about_us_description">
+    <!-- align-items-center use for make it vertically centered -->
+    <div class="row  align-items-center">
+      <div class="col d-flex  flex-wrap ">
+        <!-- font weight bold use to make it bolder -->
+        <h4 class="display-4 font-weight-bold ">Who we Are</h4>
+        <p>NHOutfits is newly created online store which provides new and exciting fashion for your kids. exciting range
+          of items for men and women including eastern style khussa.
+          We provide best quality outfits and accessories. So, that you can look amazing as well as comfortable with
+          easy cash on delivery option available in Pakistan and free shipping above PKR 2500 orders.</p>
+      </div>
+      <!-- reserve 6 column for large screen with col-6-lg -->
+      <div class="col-6-lg ">
+        <img class="img-fluid img-thumbnail d-block " src="background.jpg">
+      </div>
+    </div>
+  </div>
+  <!-- use row and column method to make it centered justified -->
+  <div class="container">
+    <div class="row">
+      <div class="col-2">
+      </div>
+      <div class="col-8">
+        <div class="">
+          <hr>
+        </div>
+        <h5 class="text-center">A Few Words About</h5>
+        <h6 class="display-4 text-center font-weight-bold">Our Team</h6>
+        <p class="d-flex justify-content-center">Mr. Ali hassan is a software engineer and an entrepreneur with a unique
+          fondness for outfits. He is our CEO and Mr. Nauman Ur Rehman is an environmentalist and an entrepreneur too.
+          He is our COO. As NHOutfits is a freshly started business we will ensure to our utmost capacity to satisty our
+          customers and they will return again
+
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- our team div using card -->
+<!-- use #id card use to make both pictures equal width -->
+  <div class="container-fluid d-flex p-3 justify-content-center flex-wrap" id="card">
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top img-thumbnail rounded-circle" src="user.jpg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title d-flex justify-content-center">Ali Hassan</h5>
+          <p class="card-text d-flex justify-content-center"><small class="text-muted">Founder - CEO</small></p>
+        </div>
+      </div>
+    </div>
+    <div class="card-deck">
+      <div class="card">
+        <img class="card-img-top img-thumbnail rounded-circle" src="user2.jpeg" alt="Card image cap">
+        <div class="card-body">
+          <h5 class="card-title d-flex justify-content-center">Nauman Ur Rehman</h5>
+          <p class="card-text d-flex justify-content-center"><small class="text-muted">COO</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- our Team Div End -->
+
+  <!-- Follow us div with bg Image -->
+  <div class="container-fluid follow_us  d-flex flex-wrap align-items-center justify-content-center p-3">
+    <div class="row">
+      <div class="col-12 ">
+
+        <h1 class="display-4 ">
+          Follow US
+        </h1>
+        <div class="d-flex justify-content-center">
+          <i class="fa fa-facebook-square fa-3x p-3"></i>
+          <i class="fa fa-google-plus fa-3x p-3" aria-hidden="true"></i>
+          <i class="fa fa-twitter-square fa-3x p-3 " aria-hidden="true"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+  <!-- End Follow us div with bg Image -->
+  <!-- Footer -->
+  <div class="footer">
+    <footer class="page-footer font-small stylish-color-dark pt-4">
+
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- Grid column -->
+          <div class="col-md-4 mx-auto">
+
+            <!-- Content -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Quick Link</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Home</a>
+              </li>
+              <li>
+                <a href="#!">Store </a>
+              </li>
+              <li>
+                <a href="#!">Cart</a>
+              </li>
+              <li>
+                <a href="#!">Contact</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-2 mx-auto">
+
+            <!-- Links -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">For Her</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Suit</a>
+              </li>
+              <li>
+                <a href="#!">Women Show </a>
+              </li>
+              <li>
+                <a href="#!">Girls Frocks</a>
+              </li>
+              <li>
+                <a href="#!">Bed Sheets</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-2 mx-auto">
+
+            <!-- Links -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">For Him</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Men Khussa</a>
+              </li>
+              <li>
+                <a href="#!">Boys Khussa</a>
+              </li>
+              <li>
+                <a href="#!">Boy Jeans</a>
+              </li>
+              <li>
+                <a href="#!">Chappal & kheri</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-2 mx-auto">
+
+            <!-- Links -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Downloads</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <img class=" img-fluid img-thumbnail d-block col flex-wrap p-1" src="ios.png">
+              </li>
+              <li>
+                <img class="img-fluid d-block img-thumbnail flex-wrap col p-1" src="android.png">
+              </li>
+
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Footer Links -->
+
+      <hr>
+
+      <!-- Call to action -->
+      <ul class="list-unstyled list-inline text-center py-2" id="accessories">
+        <li class="list-inline-item">
+          <h5 class="mb-1">Register for free</h5>
+        </li>
+        <li class="list-inline-item">
+          <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+        </li>
+      </ul>
+      <!-- Call to action -->
+
+      <hr>
+
+      <!-- Social buttons -->
+      <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+          <a class="btn-floating btn-fb mx-1">
+            <i class="fab fa-facebook-f"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-tw mx-1">
+            <i class="fab fa-twitter"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-gplus mx-1">
+            <i class="fab fa-google-plus-g"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-li mx-1">
+            <i class="fab fa-linkedin-in"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-dribbble mx-1">
+            <i class="fab fa-dribbble"> </i>
+          </a>
+        </li>
+      </ul>
+      <!-- Social buttons -->
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://mdbootstrap.com/"> Nhoutfits.com</a>
+      </div>
+      <!-- Copyright -->
+  </div>
+  </footer>
+  <!-- Footer -->
+
+  <!-- Scripting Start -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+  <!-- Scripting End -->
+</body>
+
+</html>

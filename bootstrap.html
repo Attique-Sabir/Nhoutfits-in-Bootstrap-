@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <!-- CDN Start -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+    integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <!-- fontawesome cdc for usin fa fas class for Icon -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css"
+    integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <!-- CDN End -->
+
+  <title>Shopping Store</title>
+  <!-- Outline css Start -->
+  <style>
+    .background {
+      width: 100%;
+      background: url('background.jpg');
+      background-size: cover;
+      background-attachment: fixed;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    #fp {
+      width: 100%;
+      background: url('bg-featuredproduct.jpg');
+      background-size: cover;
+      margin-top: -80px;
+      background-attachment: fixed;
+    }
+    .footer {
+      width: 100%;
+      background: url(footer.png);
+      background-size: cover;
+      background-attachment: fixed;
+    }
+       .card {
+      width: 18rem;
+    }
+    #alertbox
+    {
+      margin:0em;
+    }
+    #raining_offer_heading1
+    {
+      font-size:50px;
+    }
+    #raining_offer_heading2
+    {
+      font-size:20px;
+    }
+    #raining_offer_heading3
+    {
+      font-size:70px;
+    }
+  </style>
+  <!-- Outline css End -->
+</head>
+<body>
+  <!-- Alert Message Bar Start -->
+  <!-- use outline css alertbox class for removing margin 16px by defualt -->
+   <div class="alert alert-warning alert-dismissible text-center  bg-warning text-white p-3" id="alertbox">
+    <button type="button" class="close" data-dismiss="alert">&times;</button>
+    <strong><span class="fas fa-car "></span> Free Delivery above order of PKR 2000</strong>
+  </div>
+  <!-- Alert Message bar End -->
+
+  <!-- Navbar Start -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-dark w-100 sticky-top ">
+    <!-- use sticky-top for placing Navbar always on top -->
+    <a class="navbar-brand " href="bootstrap.html"><img src="logo.png" alt=""></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse justify-content-end " id="navbarSupportedContent">
+      <ul class="justify-content-end navbar-nav mr-auto justify-content-end">
+        <li class="nav-item active">
+          <a class="nav-link text-white " href="bootstrap.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item ">
+          <a class="nav-link text-white" href="#" id="#store">Store</a>
+        </li>
+        <!-- Dropdown for Men Category -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Men
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Chappal And Kheri</a>
+            <a class="dropdown-item" href="#">Khussa</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Suit</a>
+          </div>
+        </li>
+            <!-- Dropdown for Women Category -->
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button"
+            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Women
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="#">Chappal And Kheri</a>
+            <a class="dropdown-item" href="#">Khussa</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="#">Suit</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="boys.html">Boys</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="girls.html">Girls</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="#accessories">Accessories</a>
+        </li>
+        <li class="nav-item">
+          <!-- for modal opening add data-toggle and data target on nav bar Links -->
+          <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#accountmodal">Account</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link text-white" href="about.html">About</a>
+        </li>
+        <li class="nav-item">
+           <!-- for modal opening add data-toggle and data target on nav bar Links -->
+          <a class="nav-link text-white" href="#" data-toggle="modal" data-target="#exampleModalLong">Contact Us</a>
+        </li>
+      </ul>
+          </div>
+
+    <!-- Search Box Filter In Nav Bar -->
+    <!-- use justify content end to make it float right so using justify content end d-flex is necessary in Bs4 we use flex rather than float  -->
+    <div class="container col-md-3 d-flex justify-content-end ">
+      <input class="form-control " id="myInput" type="text" placeholder="Search..">
+    </div>
+  </nav>
+   <!-- Search Bar End In Nav Bar  -->
+
+  <!-- Checking smooth behaviour on accessories  -->
+
+  <!-- Modal For Contact Us in Nav BAr -->
+  <div class="modal fade" id="exampleModalLong" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title text-primary" id="exampleModalLongTitle">Contatc US</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="form-group">
+              <input placeholder="Name" class="form-control" type="text" name="Name" id="Name">
+            </div>
+            <div class="form-group">
+              <input placeholder="Email" class="form-control" type="email" name="Email" id="Email">
+            </div>
+            
+            <div class="form-group">
+              <input placeholder="Contact" class="form-control" type="Contact" name="Contact" id="Contact">
+            </div>
+
+            <div class="form-group">
+              <textarea placeholder="Message here" class="form-control" name="message" id="message" cols="30"
+                rows="10"></textarea>
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Submit</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Modal End for Contact Us in Nav Bar -->
+
+  <!--  Modal for Account Login in Nav Bar -->
+  <div class="modal fade" id="accountmodal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="text-center text-primary" id="accountmodal">Login here</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form action="">
+            <div class="form-group">
+              <input type="text" class="form-control" type="username" id="username" placeholder="UserName">
+            </div>
+            <div class="form-group">
+              <input type="password" class="form-control" type="password" id="password" placeholder="Password">
+            </div>
+
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Login</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- End modal Account login in Nav BAr-->
+
+  <!-- Navbar End -->
+  <!-- Header with bg picture -->
+  <div class="contaner-fluid" id="myDIV">
+    <div class="background p-5 ">
+      <h3 class="display1 text-white" id="raining_offer_heading3">Raining Offer <br>For your Summer</h3><br>
+      <h1 class="text-white Display1" id="raining_offer_heading1" >Shopping Made Easier</h1><br>
+      <h2 class="display1 text-warning"  id="raining_offer_heading2">Free Shipping Over Pkr order 2000</h2>
+      <button type="button" class="btn btn-info justify-content-center " >Shop Now</button>
+
+      <button class="btn btn-primary">Find More</button>
+    </div>
+  </div>
+  <!-- header end -->
+  
+  <!-- Featured Product Body -->
+  <div class="container-fluid ">
+    <h1 class="p-5 m-5 text-center ">-Featured Product-</h1>
+  </div>
+  <!-- use container fluid to give 100% width use d-flex to make it horizental way use flex wrap to make it responsve on small screen and justify content around to make gap b/w all columns -->
+  <div class="container-fluid d-flex d-inline flex-wrap justify-content-around">
+    <div class="card">
+      <img class="card-img-top" src="dress1.jpg" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">Women Lawn Embroidered with Shifoon Dupatta</h4>
+        <p class="card-text">Women</p>
+        <p class="card-text">Rs 1,799.00</p>
+        <a href="#" class="btn btn-primary stretched-link">Add to Cart</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="royal_kheri.jpg" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">Women Lawn Embroidered with Shifoon Dupatta</h4>
+        <p class="card-text">Women</p>
+        <p class="card-text">Rs 1,799.00</p>
+        <a href="#" class="btn btn-primary stretched-link">Add to Cart</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="dress2.jpg" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">Women Lawn Embroidered with Shifoon Dupatta</h4>
+        <p class="card-text">Women</p>
+        <p class="card-text">Rs 1,799.00</p>
+        <a href="#" class="btn btn-primary stretched-link">Add to Cart</a>
+      </div>
+    </div>
+    <div class="card">
+      <img class="card-img-top" src="dress3.jpg" alt="Card image">
+      <div class="card-body">
+        <h4 class="card-title">Women Lawn Embroidered with Shifoon Dupatta</h4>
+        <p class="card-text">Women</p>
+        <p class="card-text">Rs 1,799.00</p>
+        <a href="#" class="btn btn-primary stretched-link">Add to Cart</a>
+      </div>
+    </div>
+  </div>
+  </div>
+   </div>
+  </div>
+
+  <!-- Footer Start -->
+  <div class="footer">
+    <footer class="page-footer font-small stylish-color-dark pt-4">
+
+      <!-- Footer Links -->
+      <div class="container text-center text-md-left">
+
+        <!-- Grid row -->
+        <div class="row">
+
+          <!-- Grid column -->
+          <div class="col-md-4 mx-auto">
+
+            <!-- Content -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Quick Link</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Home</a>
+              </li>
+              <li>
+                <a href="#!">Store </a>
+              </li>
+              <li>
+                <a href="#!">Cart</a>
+              </li>
+              <li>
+                <a href="#!">Contact</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-2 mx-auto">
+
+            <!-- Links -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">For Her</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Suit</a>
+              </li>
+              <li>
+                <a href="#!">Women Show </a>
+              </li>
+              <li>
+                <a href="#!">Girls Frocks</a>
+              </li>
+              <li>
+                <a href="#!">Bed Sheets</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-2 mx-auto">
+
+            <!-- Links -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">For Him</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <a href="#!">Men Khussa</a>
+              </li>
+              <li>
+                <a href="#!">Boys Khussa</a>
+              </li>
+              <li>
+                <a href="#!">Boy Jeans</a>
+              </li>
+              <li>
+                <a href="#!">Chappal & kheri</a>
+              </li>
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+          <hr class="clearfix w-100 d-md-none">
+
+          <!-- Grid column -->
+          <div class="col-md-2 mx-auto">
+
+            <!-- Links -->
+            <h5 class="font-weight-bold text-uppercase mt-3 mb-4">Downloads</h5>
+
+            <ul class="list-unstyled">
+              <li>
+                <img class="img-thumbnail  p-1" src="ios.png">
+              </li>
+              <li>
+                <img class="  img-thumbnail p-1" src="android.png">
+              </li>
+
+            </ul>
+
+          </div>
+          <!-- Grid column -->
+
+        </div>
+        <!-- Grid row -->
+
+      </div>
+      <!-- Footer Links -->
+
+      <hr>
+
+      <!-- Call to action -->
+      <ul class="list-unstyled list-inline text-center py-2" id="accessories">
+        <li class="list-inline-item">
+          <h5 class="mb-1">Register for free</h5>
+        </li>
+        <li class="list-inline-item">
+          <a href="#!" class="btn btn-danger btn-rounded">Sign up!</a>
+        </li>
+      </ul>
+      <!-- Call to action -->
+      <!-- hr for displaying line -->
+      <hr>
+
+      <!-- Social buttons -->
+      <ul class="list-unstyled list-inline text-center">
+        <li class="list-inline-item">
+          <a class="btn-floating btn-fb mx-1">
+            <i class="fab fa-facebook-f"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-tw mx-1">
+            <i class="fab fa-twitter"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-gplus mx-1">
+            <i class="fab fa-google-plus-g"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-li mx-1">
+            <i class="fab fa-linkedin-in"> </i>
+          </a>
+        </li>
+        <li class="list-inline-item">
+          <a class="btn-floating btn-dribbble mx-1">
+            <i class="fab fa-dribbble"> </i>
+          </a>
+        </li>
+      </ul>
+      <!-- Social buttons -->
+
+      <!-- Copyright -->
+      <div class="footer-copyright text-center py-3">© 2020 Copyright:
+        <a href="https://mdbootstrap.com/"> NHoutfits.com</a>
+      </div>
+      <!-- Copyright -->
+  </div>
+  </footer>
+  <!-- Footer -->
+
+  
+                         <!-- Scripting Start -->
+
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+    integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous">
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous">
+  </script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+    integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous">
+  </script>
+  <script>
+    $(document).ready(function () {
+      $("#myInput").on("keyup", function () {
+        var value = $(this).val().toLowerCase();
+        $("#myDIV *").filter(function () {
+          $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+        });
+      });
+    });
+  </script>
+                         <!-- Scripting End -->
+</body>
+
+</html>
